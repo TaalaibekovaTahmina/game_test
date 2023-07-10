@@ -3,6 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tirkeme9/constants/aap_colors.dart';
 import 'package:tirkeme9/constants/aap_text.dart';
 import 'package:tirkeme9/models/continents.dart';
+import 'package:tirkeme9/pages/test_page.dart';
+
+import '../components/custom_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -62,56 +65,19 @@ class HomePage extends StatelessWidget {
               itemBuilder: (context, index) {
                 final item = continents[index];
                 return CustomCard(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TestPage(),
+                      ),
+                    );
+                  },
                   item: item,
                 );
               },
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class CustomCard extends StatelessWidget {
-  const CustomCard({
-    required this.item,
-    super.key,
-  });
-
-  final Continents item;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: AppColors.white,
-      child: Column(
-        children: [
-          const SizedBox(height: 5),
-          Text(
-            item.name,
-            style: const TextStyle(fontSize: 22),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: SvgPicture.asset(
-                'assets/icons/${item.image}.svg',
-                color: item.color,
-              ),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(Icons.star_outline),
-              Icon(Icons.star_outline),
-              Icon(Icons.star_outline),
-              Icon(Icons.star_outline),
-              Icon(Icons.star_outline),
-            ],
-          ),
-          const SizedBox(height: 5),
         ],
       ),
     );
