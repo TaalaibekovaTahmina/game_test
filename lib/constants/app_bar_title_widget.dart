@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tirkeme9/constants/aap_colors.dart';
+import 'package:tirkeme9/models/continents.dart';
+import 'package:tirkeme9/models/suroo.dart';
 
 class AppBarTitleWidget extends StatelessWidget {
   const AppBarTitleWidget({
+    required this.suroonunSany,
+    required this.tuuraJoop,
+    required this.kataJoop,
     super.key,
   });
+
+  final int suroonunSany;
+  final int tuuraJoop;
+  final int kataJoop;
 
   @override
   Widget build(BuildContext context) {
@@ -18,32 +27,44 @@ class AppBarTitleWidget extends StatelessWidget {
               horizontal: 8,
             ),
             child: Row(
-              children: const [
-                Icon(
-                  Icons.lightbulb_outlined,
-                  color: AppColors.yellow,
+              children: [
+                Text(
+                  '$tuuraJoop',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: AppColors.activ,
+                  ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 5,
                   ),
                   child: Text(
-                    '32',
-                    style: TextStyle(
+                    '${australiaQuestion.length}',
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
-                Icon(
-                  Icons.add_circle,
-                  color: AppColors.activ,
+                Text(
+                  '$kataJoop',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: AppColors.red,
+                  ),
                 ),
               ],
             ),
           ),
         ),
-        const Text('3', style: TextStyle(fontSize: 22)),
+        Text(
+          '$suroonunSany',
+          style: const TextStyle(
+            fontSize: 22,
+            color: AppColors.black,
+          ),
+        ),
         Row(
           children: [
             SizedBox(

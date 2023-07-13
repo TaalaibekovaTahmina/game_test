@@ -3,8 +3,11 @@ import 'package:tirkeme9/constants/aap_colors.dart';
 
 class SliderWidget extends StatelessWidget {
   const SliderWidget({
+    required this.value,
     super.key,
   });
+
+  final int value;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +21,8 @@ class SliderWidget extends StatelessWidget {
         child: Slider(
           activeColor: AppColors.activ,
           inactiveColor: AppColors.inActiv,
-          value: 10,
-          max: 100,
+          value: value.toDouble(),
+          max: 10,
           onChanged: (valut) {},
         ),
       ),

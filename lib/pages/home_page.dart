@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tirkeme9/constants/aap_colors.dart';
 import 'package:tirkeme9/constants/aap_text.dart';
 import 'package:tirkeme9/models/continents.dart';
+import 'package:tirkeme9/models/suroo.dart';
 import 'package:tirkeme9/pages/test_page.dart';
 
 import '../components/custom_card.dart';
@@ -63,17 +64,27 @@ class HomePage extends StatelessWidget {
               ),
               itemCount: continents.length,
               itemBuilder: (context, index) {
-                final item = continents[index];
+                final continent = continents[index];
                 return CustomCard(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const TestPage(),
-                      ),
-                    );
+                    if (continent.suroo != null) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TestPage(
+                            suroo: continent.suroo!,
+                          ),
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Бул континентте суроо жок'),
+                        ),
+                      );
+                    }
                   },
-                  item: item,
+                  item: continent,
                 );
               },
             ),

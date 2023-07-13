@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:tirkeme9/constants/aap_colors.dart';
 import 'package:tirkeme9/constants/aap_text.dart';
+import 'package:tirkeme9/models/suroo.dart';
 
 class Continents {
   const Continents({
     required this.name,
     required this.image,
     required this.color,
+    this.suroo,
   });
 
   final String name;
   final String image;
   final Color color;
+  final List<Suroo>? suroo;
 }
 
-const europe = Continents(
+final europe = Continents(
   name: AppText.europe,
   image: 'europe',
   color: AppColors.europe,
+  suroo: europeQuestion,
 );
 
 const asia = Continents(
@@ -44,10 +48,11 @@ const africa = Continents(
   color: AppColors.africa,
 );
 
-const australia = Continents(
+final australia = Continents(
   name: AppText.australia,
   image: 'australia',
   color: AppColors.australia,
+  suroo: australiaQuestion,
 );
 
 List<Continents> continents = [
