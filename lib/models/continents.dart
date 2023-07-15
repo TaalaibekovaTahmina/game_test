@@ -24,28 +24,32 @@ final europe = Continents(
   suroo: europeQuestion,
 );
 
-const asia = Continents(
+final asia = Continents(
   name: AppText.asia,
   image: 'asia',
   color: AppColors.asia,
+  suroo: asiaQuestion,
 );
 
-const northAmerica = Continents(
+final northAmerica = Continents(
   name: AppText.northAmerica,
   image: 'north_america',
   color: AppColors.northAmerica,
+  suroo: northAmericaQuestion,
 );
 
-const southAmerica = Continents(
+final southAmerica = Continents(
   name: AppText.southAmerica,
   image: 'south_america',
   color: AppColors.southAmerica,
+  suroo: southAmericaQuestion,
 );
 
-const africa = Continents(
+final africa = Continents(
   name: AppText.africa,
   image: 'africa',
   color: AppColors.africa,
+  suroo: africaQuestion,
 );
 
 final australia = Continents(
